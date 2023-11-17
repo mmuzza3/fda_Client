@@ -1,0 +1,453 @@
+.start-page{
+    -fx-background-color: rgba(255, 98, 0, 0.44);
+    -fx-alignment:center;
+}
+
+.start-buttons {
+    -fx-background-color: linear-gradient(to bottom, #ff8c00, #ff4500); /* Gradient background */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* Text color */
+    -fx-font-size: 30px; /* Font size */
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-background-radius: 5px; /* Rounded background */
+    -fx-font-weight: bold;
+}
+.start-buttons {
+    /*-fx-background-color: linear-gradient(to bottom, #ff4500, #ff8c00); !* Change gradient on hover *!*/
+    /*-fx-effect: dropshadow(gaussian, #ff4500, 10, 0.5, 0, 0); !* Add a drop shadow on hover *!*/
+    /*-fx-cursor: hand; !* Change cursor to a hand on hover *!*/
+    -fx-background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.58), rgba(128, 128, 128, 0.29)); /* Change gradient on hover */
+    -fx-effect: dropshadow(gaussian, #ef5418, 10, 0.5, 0, 0); /* Add a drop shadow on hover */
+    -fx-cursor: hand; /* Change cursor to a hand on hover */
+}
+.start-buttons:pressed {
+    -fx-background-color: #ff4500; /* Change background color when pressed */
+    -fx-effect: dropshadow(gaussian, #ff4500, 5, 0.5, 0, 0); /* Add a drop shadow when pressed */
+}
+.start-buttons:hover{
+    -fx-background-color: rgba(255, 140, 0, 0.47)
+}
+
+.custom-button {
+
+    -fx-background-color: linear-gradient(rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.29));
+    -fx-background-radius: 10;
+    -fx-background-insets: 0, 1;
+    -fx-text-fill: rgba(0, 0, 0, 0.29);
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(0, 0, 0, 0.29);
+    -fx-border-width: 2;
+}
+
+.menu-background{
+    -fx-background-color: black;
+}
+
+.two-pics-hbox{
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgb(148, 17, 17), 10, 0, 0, 0);
+}
+
+.food-label{
+    -fx-effect: dropshadow(gaussian, rgba(90, 236, 18, 0.5), 3, 0, 0, 1);
+    -fx-alignment: center;
+    -fx-border-width: 1px;
+    -fx-border-color: #000000;
+    -fx-border-radius: 30px;
+    -fx-wrap-text: true;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.cart-button {
+    -fx-background-color: #ffff0c; /* Button background color */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* Button text color */
+    -fx-font-size: 16px; /* Font size */
+    -fx-font-weight: bold; /* Font weight */
+    -fx-padding: 5px 15px; /* Padding (top, right, bottom, left) */
+    -fx-border-radius: 30px;; /* Rounded corners */
+    -fx-cursor: hand; /* Change the cursor on hover for better user feedback */
+}
+
+.cart-button:hover {
+    -fx-background-color: rgba(255, 255, 0, 0.16); /* Change background color on hover */
+}
+
+.food-list{
+    -fx-background-color: rgba(211, 211, 211, 0.2); /* Background color */
+    -fx-padding: 10px; /* Padding */
+    -fx-font-size: 16px; /* Font size */
+    -fx-font-weight: bold; /* Font weight */
+    -fx-text-fill: #5cde12; /* Text color */
+}
+
+.food-list .list-cell{
+    -fx-fill: red; /* Text color (in this example, it's set to red) */
+}
+
+.food-list:hover{
+    -fx-background-color: rgba(128, 128, 128, 0.35);
+}
+
+.food-list:pressed{
+    -fx-background-color: rgba(211, 211, 211, 0.69);
+}
+
+.checkout-button{
+    -fx-background-color: #ffff00;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+    -fx-min-width: 150px;
+    -fx-cursor: hand;
+}
+.checkout-button:hover {
+    -fx-background-color: rgba(255, 255, 0, 0.53); /* Change background color on hover */
+}
+
+.billing-text {
+    -fx-prompt-text-fill: #999; /* Placeholder text color */
+    -fx-background-color: #f2f2f2; /* Background color */
+    -fx-border-color: #ccc; /* Border color */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-font-size: 16px; /* Font size */
+    -fx-padding: 10px; /* Padding */
+    -fx-text-fill: #333; /* Text color */
+    -fx-alignment: Center;
+    -fx-arc-height: 40;
+    -fx-arc-width: 70;
+}
+.billing-label {
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: White; /* Text color */
+    -fx-alignment: Center;
+}
+.billing-box {
+    -fx-background-color: rgb(0, 0, 0);
+    -fx-alignment: Center;
+}
+
+.name-enter {
+    -fx-prompt-text-fill: #999; /* Placeholder text color */
+    -fx-background-color: #f2f2f2; /* Background color */
+    -fx-border-color: #ccc; /* Border color */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-font-size: 16px; /* Font size */
+    -fx-padding: 10px; /* Padding */
+    -fx-text-fill: #333; /* Text color */
+    -fx-alignment: Center;
+    -fx-arc-height: 40;
+    width: 250px
+}
+
+
+.addcart-button {
+    -fx-background-color: #7e7958; /* Button background color */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* Button text color */
+    -fx-font-size: 16px; /* Font size */
+    -fx-padding: 5px 10px; /* Padding (top, right, bottom, left) */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-cursor: hand; /* Change the cursor on hover for better user feedback */
+}
+
+.addcart-button:hover {
+    -fx-background-color: #0056b3; /* Change background color on hover */
+}
+
+
+.menu-button {
+    -fx-background-color: rgba(0, 0, 0, 0.58); /* Button background color */
+    -fx-text-fill: rgba(255, 165, 0, 0.65); /* Button text color */
+    -fx-font-weight: bold; /* Button text font weight */
+    -fx-font-size: 16px; /* Button text font size */
+    -fx-padding: 10px 20px; /* Button padding (top, right, bottom, left) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2); /* Button shadow */
+    -fx-background-insets: 0, 1, 1; /* Button background insets */
+    -fx-background-radius: 30 30 30 30; /* Button background radius */
+    -fx-border-width: 2px; /* Button border width */
+    -fx-animation: glow 0.5s infinite alternate;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: rgb(0, 0, 0); /* Button background color on hover */
+}
+
+.menu-button:pressed {
+    -fx-background-color: rgba(44, 53, 77, 0.99); /* Button background color when pressed */
+}
+
+.dropDown-button {
+    /*-fx-background-color: rgb(211, 211, 211); !* Background color *!*/
+    -fx-text-fill: #d3d3d3; /* Text color */
+    -fx-font-weight: bold; /* Font weight */
+    -fx-padding: 5px 10px; /* Padding (top/bottom, left/right) */
+}
+
+/* Define a hover effect for the menu options */
+.dropDown-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.87); /* Background color on hover */
+    -fx-text-fill: white; /* Text color on hover */
+}
+
+
+.cook-listview {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-background-radius: 5px;
+    -fx-border-color: rgba(0, 0, 0, 0.58);
+    -fx-border-width: 2px;
+    -fx-text-fill: #162b7c;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-cell-size: 100px;
+    -fx-opacity: 0.9;
+}
+.cook-listview:filled{
+    -fx-background-color: #ffcc00;
+}
+.cook-listview .scroll-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+    -fx-pref-width: 8px;
+}
+.cook-listview .scroll-bar:vertical {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-width: 20px;
+    /*-fx-pref-height: 20px;*/
+}
+
+/* Horizontal scrollbar */
+.cook-listview .scroll-bar:horizontal {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-height: 20px;
+}
+
+.cook-listview .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+/* Horizontal scrollbar thumb */
+.cook-listview .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+.cook-listview:selected {
+    -fx-control-inner-background: rgba(128, 128, 128, 0.29);
+}
+.cook-listview:hover {
+    -fx-background-color: rgba(168, 70, 70, 0.4);
+}
+
+
+
+.customer-listview {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-background-radius: 5px;
+    -fx-border-color: rgba(0, 0, 0, 0.58);
+    -fx-border-width: 2px;
+    -fx-text-fill: #162b7c;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-cell-size: 100px;
+    -fx-opacity: 0.9;
+}
+.customer-listview:filled{
+    -fx-background-color: #ffcc00;
+}
+.customer-listview .scroll-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+    -fx-pref-width: 8px;
+}
+.customer-listview .scroll-bar:vertical {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-width: 20px;
+    /*-fx-pref-height: 20px;*/
+}
+
+/* Horizontal scrollbar */
+.customer-listview .scroll-bar:horizontal {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-height: 20px;
+}
+
+.customer-listview .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+/* Horizontal scrollbar thumb */
+.customer-listview .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+.customer-listview:selected {
+    -fx-control-inner-background: rgba(128, 128, 128, 0.29);
+}
+.customer-listview:hover {
+    -fx-background-color: rgba(168, 70, 70, 0.4);
+}
+
+
+.driver-listview {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-background-radius: 5px;
+    -fx-border-color: rgba(0, 0, 0, 0.58);
+    -fx-border-width: 2px;
+    -fx-text-fill: #162b7c;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-cell-size: 100px;
+    -fx-opacity: 0.9;
+}
+.driver-listview:filled{
+    -fx-background-color: #ffcc00;
+}
+.driver-listview .scroll-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+    -fx-pref-width: 8px;
+}
+.driver-listview .scroll-bar:vertical {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-width: 20px;
+    /*-fx-pref-height: 20px;*/
+}
+
+/* Horizontal scrollbar */
+.driver-listview .scroll-bar:horizontal {
+    -fx-background-color: rgba(86, 37, 37, 0.58);
+    -fx-pref-height: 20px;
+}
+
+.driver-listview .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+/* Horizontal scrollbar thumb */
+.driver-listview .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.58);
+}
+
+.driver-listview:selected {
+    -fx-control-inner-background: rgba(128, 128, 128, 0.29);
+}
+.driver-listview:hover {
+    -fx-background-color: rgba(168, 70, 70, 0.4);
+}
+
+
+.start-orderButton {
+    -fx-background-color: #3498db; /* Background color */
+    -fx-text-fill: #ffffff; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-background-radius: 5px; /* Rounded corners for background */
+    -fx-border-radius: 5px; /* Rounded corners for border */
+    -fx-border-color: #2973ac; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-background-insets: 0, 1, 2; /* Background insets */
+}
+
+.start-orderButton:hover {
+    -fx-background-color: #2973ac; /* Background color on hover */
+    -fx-text-fill: #ffffff; /* Text color on hover */
+}
+
+.accept-Button {
+    -fx-background-color: rgb(98, 192, 51); /* Background color */
+    -fx-text-fill: #ffffff; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-background-radius: 5px; /* Rounded corners for background */
+    -fx-border-radius: 5px; /* Rounded corners for border */
+    -fx-border-color: rgba(0, 0, 0, 0.58); /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-background-insets: 0, 1, 2; /* Background insets */
+}
+
+.accept-Button:hover {
+    -fx-background-color: rgba(11, 225, 11, 0.62); /* Background color on hover */
+    -fx-text-fill: #ffffff; /* Text color on hover */
+}
+
+.reject-Button {
+    -fx-background-color: #db3447; /* Background color */
+    -fx-text-fill: #ffffff; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-background-radius: 5px; /* Rounded corners for background */
+    -fx-border-radius: 5px; /* Rounded corners for border */
+    -fx-border-color: rgba(0, 0, 0, 0.58); /* Border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-background-insets: 0, 1, 2; /* Background insets */
+}
+
+.reject-Button:hover {
+    -fx-background-color: rgba(172, 41, 41, 0.82); /* Background color on hover */
+    -fx-text-fill: #ffffff; /* Text color on hover */
+}
+
+.login-textField {
+    -fx-prompt-text-fill: #999; /* Placeholder text color */
+    -fx-background-color: rgba(242, 242, 242, 0.91); /* Background color */
+    -fx-border-color: #13263a; /* Border color */
+    -fx-background-radius: 5px; /* Rounded corners for the background */
+    -fx-border-radius: 5px; /* Rounded corners for the border */
+    -fx-font-size: 16px; /* Font size */
+    -fx-padding: 10px; /* Padding */
+    -fx-text-fill: #333; /* Text color */
+    -fx-alignment: Center;
+}
+
+.map-button {
+    -fx-background-color: #3498db; /* Blue background color */
+    -fx-text-fill: #000000; /* Black text color */
+    -fx-border-color: #000000; /* Black border color */
+    -fx-border-width: 2px; /* Border width */
+    -fx-padding: 8px 16px; /* Padding around text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-weight: bold; /* Bold text */
+}
+
+.map-button:hover {
+    -fx-background-color: #2980b9; /* Darker blue on hover */
+}
+
+/*
+.list-view {
+    -fx-background-color: lightblue;
+}
+
+.list-cell {
+    -fx-text-fill: darkblue;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+.list-cell:selected {
+    -fx-control-inner-background: lightgreen;
+}
+
+.list-cell:hover {
+    -fx-background-color: lightgray;
+}
+
+.list-cell:odd {
+    -fx-background-color: #f2f2f2;
+}
+
+.list-cell:even {
+    -fx-background-color: #e0e0e0;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: gray;
+    -fx-pref-width: 8px;
+}
+
+.list-view .scroll-bar-thumb {
+    -fx-background-color: darkgray;
+    -fx-min-width: 10px;
+}
+ */
