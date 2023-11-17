@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -150,6 +151,8 @@ public class GuiClient extends Application{
 
     Set<String> displayedMessages = new HashSet<>();
     String driverIdForCustomer;
+    Button tipButton = new Button("Tip the Driver");
+    Button submitButton = new Button("Submit");
 
     List<List<String>> orderUpdatesForCustomer = new ArrayList<>();
     Boolean tipPage = false;
@@ -184,92 +187,104 @@ public class GuiClient extends Application{
         return menuOptions;
     }
 
-    void tipCustomer(Stage primaryStage){
 
-        HBox menuBar = getMenuButtons();
-        Label deliveryLabel = new Label("Your order was delivered");
-        Label tipLabel = new Label("Add a Tip");
-
-        // Create buttons
-        Button tip5Button = new Button("$5");
-        Button tip10Button = new Button("$10");
-        Button tip15Button = new Button("$15");
-        Button tip20Button = new Button("$20");
-        Button noTipButton = new Button("No Tip");
-        Button submitButton = new Button("Submit");
-
-        // Create VBox
-        VBox vbox = new VBox(10); // 10 is the spacing between nodes
-        vbox.setPadding(new Insets(20)); // Adds padding around the VBox
-        vbox.getChildren().addAll(menuBar, deliveryLabel, tipLabel, tip5Button, tip10Button, tip15Button, tip20Button, noTipButton, submitButton);
-        vbox.setStyle("-fx-background-color: #f6a304");
-
-        // Set action for the submit button (you can add your own action)
-
-        tip5Button.setOnAction(event -> {
-            tip5Button.setDisable(true);
-            tip10Button.setDisable(true);
-            tip15Button.setDisable(true);
-            tip20Button.setDisable(true);
-            noTipButton.setDisable(true);
-        });
-        tip10Button.setOnAction(event -> {
-            tip5Button.setDisable(true);
-            tip10Button.setDisable(true);
-            tip15Button.setDisable(true);
-            tip20Button.setDisable(true);
-            noTipButton.setDisable(true);
-        });
-        tip15Button.setOnAction(event -> {
-            tip5Button.setDisable(true);
-            tip10Button.setDisable(true);
-            tip15Button.setDisable(true);
-            tip20Button.setDisable(true);
-            noTipButton.setDisable(true);
-        });
-        tip20Button.setOnAction(event -> {
-            tip5Button.setDisable(true);
-            tip10Button.setDisable(true);
-            tip15Button.setDisable(true);
-            tip20Button.setDisable(true);
-            noTipButton.setDisable(true);
-        });
-        noTipButton.setOnAction(event -> {
-            tip5Button.setDisable(true);
-            tip10Button.setDisable(true);
-            tip15Button.setDisable(true);
-            tip20Button.setDisable(true);
-            noTipButton.setDisable(true);
-        });
-
-        submitButton.setOnAction(event -> {
-            System.out.println("Submit button clicked");
-            // Add your submission logic here
-        });
-
-        // Create scene and set stage
-        Scene scene = new Scene(vbox, 800, 800); // Set width and height accordingly
-        primaryStage.setTitle("Delivery Scene");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-
-    EventHandler<ActionEvent> checkTip(Stage primaryStage) {
-        EventHandler<ActionEvent> nak = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> tipOut(Stage primaryStage) {
+        EventHandler<ActionEvent> tip = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
 
-                Label gay = new Label("Hey");
-                VBox test = new VBox(gay);
-                Scene scene = new Scene(test, 800, 800);
+                HBox menuBar = getMenuButtons();
+                Label deliveryLabel = new Label("Your order was delivered");
+                Label tipLabel = new Label("Add a Tip");
+
+                tipLabel.getStyleClass().add("custom-label");
+                deliveryLabel.getStyleClass().add("custom-label");
+
+                // Create buttons
+                Button tip5Button = new Button("$5");
+                Button tip10Button = new Button("$10");
+                Button tip15Button = new Button("$15");
+                Button tip20Button = new Button("$20");
+                Button noTipButton = new Button("No Tip");
+
+                // Create VBox
+                VBox vbox = new VBox(10); // 10 is the spacing between nodes
+                vbox.setPadding(new Insets(20)); // Adds padding around the VBox
+                vbox.getChildren().addAll(menuBar, deliveryLabel, tipLabel, tip5Button, tip10Button, tip15Button, tip20Button, noTipButton, submitButton);
+                vbox.setStyle("-fx-background-color: #f6a304");
+                vbox.setAlignment(Pos.CENTER);
+
+                // Set action for the submit button (you can add your own action)
+
+                submitButton.setDisable(true);
+
+                tip5Button.setOnAction(event -> {
+                    tip5Button.setDisable(true);
+                    tip10Button.setDisable(true);
+                    tip15Button.setDisable(true);
+                    tip20Button.setDisable(true);
+                    noTipButton.setDisable(true);
+                    submitButton.setDisable(false);
+                    clientConnection.send("Tip " + driverIdForCustomer + " " + 5.0);
+                });
+                tip10Button.setOnAction(event -> {
+                    tip5Button.setDisable(true);
+                    tip10Button.setDisable(true);
+                    tip15Button.setDisable(true);
+                    tip20Button.setDisable(true);
+                    noTipButton.setDisable(true);
+                    submitButton.setDisable(false);
+                    clientConnection.send("Tip " + driverIdForCustomer + " " + 10.0);
+                });
+                tip15Button.setOnAction(event -> {
+                    tip5Button.setDisable(true);
+                    tip10Button.setDisable(true);
+                    tip15Button.setDisable(true);
+                    tip20Button.setDisable(true);
+                    noTipButton.setDisable(true);
+                    submitButton.setDisable(false);
+                    clientConnection.send("Tip " + driverIdForCustomer + " " + 15.0);
+                });
+                tip20Button.setOnAction(event -> {
+                    tip5Button.setDisable(true);
+                    tip10Button.setDisable(true);
+                    tip15Button.setDisable(true);
+                    tip20Button.setDisable(true);
+                    noTipButton.setDisable(true);
+                    submitButton.setDisable(false);
+                    clientConnection.send("Tip " + driverIdForCustomer + " " + 20.0);
+                });
+                noTipButton.setOnAction(event -> {
+                    tip5Button.setDisable(true);
+                    tip10Button.setDisable(true);
+                    tip15Button.setDisable(true);
+                    tip20Button.setDisable(true);
+                    noTipButton.setDisable(true);
+                    submitButton.setDisable(false);
+                });
+
+                submitButton.setOnAction(event -> {
+                    System.out.println("submit check");
+                    submitButton.setOnAction(startOrderApp(primaryStage));
+                });
+
+                tip5Button.getStyleClass().add("tip-amount");
+                tip10Button.getStyleClass().add("tip-amount");
+                tip15Button.getStyleClass().add("tip-amount");
+                tip20Button.getStyleClass().add("tip-amount");
+                noTipButton.getStyleClass().add("tip-amount");
+                submitButton.getStyleClass().add("submit-button");
+
+                // Create scene and set stage
+                Scene scene = new Scene(vbox, 800, 800); // Set width and height accordingly
+                scene.getStylesheets().add("styles.css");
+                primaryStage.setTitle("Delivery Scene");
                 primaryStage.setScene(scene);
                 primaryStage.show();
 
             }
         };
-        return nak;
+        return tip;
     }
 
 
@@ -305,8 +320,11 @@ public class GuiClient extends Application{
 
 
                 HBox menuOptions =  getMenuButtons();
-                VBox updateBox = new VBox(30, menuOptions, updateList);
+                VBox updateBox = new VBox(30, menuOptions, updateList, tipButton);
                 updateBox.setStyle("-fx-background-color: #f6a304");
+
+                tipButton.getStyleClass().add("tip-driver-button");
+                tipButton.setOnAction(tipOut(primaryStage));
 
                 updateList.setMaxWidth(350);
                 updateList.getStyleClass().add("customer-listview");
@@ -1489,7 +1507,7 @@ public class GuiClient extends Application{
                 Label orderLabel = new Label("Order was successfully completed");
                 orderLabel.setStyle("-fx-font-size: 20;");
 
-                Label earningsLabel = new Label("You earned $5 for this delivery");
+                Label earningsLabel = new Label("You earned " + driverEarnings + " for this delivery");
                 earningsLabel.setStyle("-fx-font-size: 20;");
 
                 // Create an HBox for the "Continue searching for deliveries" label and button
@@ -1740,6 +1758,93 @@ public class GuiClient extends Application{
         return earnings;
     }
 
+    private VBox createSideVBox(int spacingBetweenLabels, String... labels) {
+        VBox sideVBox = new VBox(30); // Vertical VBox for each side
+
+        for (String label : labels) {
+            Label currentLabel = new Label(label);
+            currentLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12pt; -fx-text-fill: rgba(0,0,0,0.58);"); // Set style for bold text, 14pt size, and blue color
+            sideVBox.getChildren().add(currentLabel);
+        }
+
+        sideVBox.setAlignment(Pos.CENTER);
+
+        return sideVBox;
+    }
+
+    EventHandler<ActionEvent> settingsForApp(Stage primaryStage) {
+        EventHandler<ActionEvent> settings = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                HBox menuStart = driverAppMenu();
+
+                int spacingBetweenHBoxes = 40; // Adjust the spacing between HBoxes
+                int spacingBetweenLabels = 5; // Adjust the spacing between labels
+
+                // Create VBoxes for left and right sides
+                VBox leftVBox = createSideVBox(spacingBetweenLabels, "Sounds & Voices", "Navigation", "Accessibility", "Communication", "Night Mode", "Follow My Ride", "Emergency Contacts", "Speed Limit", "911 Data Sharing", "Ride Check", "Video Recording");
+                VBox rightVBox = createSideVBox(spacingBetweenLabels, "Off >", "Google Maps >", "Vibration >", "Preference >", "Automatic (time of day) >", "Set Up >", "Choose >", "Set Restriction >", "Allowed >", "On >", "Off >");
+
+                // Combine left and right VBoxes into an HBox
+                HBox mainHBox = new HBox(spacingBetweenHBoxes);
+                mainHBox.getChildren().addAll(leftVBox, rightVBox);
+                mainHBox.setAlignment(Pos.CENTER);
+
+                VBox finalPage = new VBox(20, menuStart, mainHBox);
+                finalPage.setAlignment(Pos.CENTER);
+                finalPage.setStyle("-fx-background-color: rgba(128,128,128,0.35)");
+
+
+                // Create the scene
+                Scene scene = new Scene(finalPage, 800, 800); // Set width and height accordingly
+                scene.getStylesheets().add("styles.css");
+
+                // Set the scene and show the stage
+                primaryStage.setTitle("Settings Scene Example");
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            }
+        };
+        return settings;
+    }
+
+    EventHandler<ActionEvent> aboutSettings(Stage primaryStage) {
+        EventHandler<ActionEvent> about = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                HBox menuStart = driverAppMenu();
+
+                VBox mainVBox = new VBox(20); // Vertical gap of 20 between buttons
+                mainVBox.setAlignment(Pos.TOP_CENTER); // Align to the top of the VBox
+
+                // Create buttons
+                Button versionButton = new Button("Version 4.425.1000");
+                Button acknowledgementsButton = new Button("Acknowledgements");
+
+                // Add elements to the VBox
+                mainVBox.getChildren().addAll(menuStart, versionButton, acknowledgementsButton);
+
+                mainVBox.setStyle("-fx-background-color: rgba(128,128,128,0.35)");
+
+                // Set event handlers if needed
+
+                // Create the scene
+                Scene scene = new Scene(mainVBox, 800, 800);
+                scene.getStylesheets().add("styles.css");
+
+                // Set the scene and show the stage
+                primaryStage.setTitle("Version Scene Example");
+                primaryStage.setScene(scene);
+                primaryStage.show();
+
+            }
+        };
+        return about;
+    }
+
+
     void startDelivery(Stage primaryStage) {
 
         HBox menuStart = driverAppMenu();
@@ -1800,6 +1905,8 @@ public class GuiClient extends Application{
         option2.setOnAction(payment(primaryStage));
         option3.setOnAction(manageAccount(primaryStage));
         option4.setOnAction(insurance(primaryStage));
+        option6.setOnAction(settingsForApp(primaryStage));
+        option7.setOnAction(aboutSettings(primaryStage));
         option8.setOnAction(signIn(primaryStage));
 
 
@@ -2030,6 +2137,12 @@ public class GuiClient extends Application{
         return signInForDriver;
     }
 
+    private static double roundToTwoDecimalPlaces(double value) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String formattedValue = decimalFormat.format(value);
+        return Double.parseDouble(formattedValue);
+    }
+
 
     //---------------------------DRIVER APP ENDS HERE-------------------------------------
 
@@ -2089,16 +2202,8 @@ public class GuiClient extends Application{
                 clientConnection.send("DriverMoney " + driverIdForCustomer + " " + itemsInCart.getTotal());
             }
             else if(message.toString().contains("Delivered")){
-//                tipCustomer(primaryStage);
-//                checkTip(primaryStage);
 
-                tipPage = true;
-
-//                Button button = new Button("fire");
-//                button.setOnAction(event -> {
-//                    checkTip(primaryStage);
-//                });
-//                button.fire();
+                newMessages.add("Your order was delivered! Enjoy!");
 
             }
         };
@@ -2115,7 +2220,6 @@ public class GuiClient extends Application{
 
                 orders.add(order); // Then store it so cook app can access it
                 updateItemsInList();
-
 
             }
             //System.out.println("Message for cook: " + message.toString());
@@ -2141,9 +2245,18 @@ public class GuiClient extends Application{
             }
             if(message.toString().contains("Earning")){
 
-                String  money = message.toString();
+//                String  money = message.toString();
+//                String[] parts = money.split("\\s+");
+//                driverEarnings += Double.parseDouble(parts[1]);
+//                System.out.println("Driver money = " + driverEarnings);
+
+                String money = message.toString();
                 String[] parts = money.split("\\s+");
-                driverEarnings = Double.parseDouble(parts[1]);
+                driverEarnings += Double.parseDouble(parts[1]);
+
+                // Round the driverEarnings to two decimal places
+                driverEarnings = roundToTwoDecimalPlaces(driverEarnings);
+
                 System.out.println("Driver money = " + driverEarnings);
 
             }
@@ -2154,13 +2267,9 @@ public class GuiClient extends Application{
 
 
 
-
-
-
         //startOrderApp(primaryStage);
 
         primaryStage.show();
-
 
         Button customer = new Button("CUSTOMER APP");
         Button cook = new Button("COOK APP");

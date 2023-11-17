@@ -414,6 +414,49 @@
     -fx-background-color: #2980b9; /* Darker blue on hover */
 }
 
+.tip-driver-button {
+    -fx-background-color: #af794c; /* Green background color */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* White text color */
+    -fx-font-size: 10pt; /* Font size */
+    /* Add any other styles you want to customize */
+}
+
+.tip-driver-button:hover {
+    -fx-background-color: rgba(197, 164, 136, 0.94); /* Green color when hovered */
+    /* Add any other styles for the hover state */
+}
+
+.tip-amount {
+    -fx-background-color: #af794c; /* Green background color */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* White text color */
+    -fx-font-size: 10pt; /* Font size */
+    /* Add any other styles you want to customize */
+}
+
+.tip-amount:hover {
+    -fx-background-color: rgba(197, 164, 136, 0.94); /* Green color when hovered */
+    /* Add any other styles for the hover state */
+}
+
+.submit-button {
+         -fx-background-color: rgba(255, 255, 0, 0.53); /* Green background color */
+         -fx-text-fill: rgba(0, 0, 0, 0.58); /* White text color */
+         -fx-font-size: 10pt; /* Font size */
+         /* Add any other styles you want to customize */
+     }
+
+.submit-button:hover {
+    -fx-background-color: rgba(255, 255, 0, 0.84); /* Green color when hovered */
+    /* Add any other styles for the hover state */
+}
+
+.custom-label {
+    -fx-font-size: 14pt; /* Font size */
+    -fx-text-fill: rgba(0, 0, 0, 0.58); /* Text color */
+    -fx-background-color: #f6a304; /* Transparent white background */
+    /* Add any other label styles */
+}
+
 /*
 .list-view {
     -fx-background-color: lightblue;
